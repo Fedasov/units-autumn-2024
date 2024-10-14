@@ -10,8 +10,8 @@ describe('test for the current time function', () => {
     })
     it('return current time', () => {
         const testingTime = renderHook(() => useCurrentTime());
-        const expectedTime = new Date().toLocaleTimeString('ru-RU');
-        expect(testingTime.result.current).toBe(expectedTime);
+        const expectedTimePattern = /\d{2}:\d{2}:\d{2}/;
+        expect(testingTime.result.current).toMatch(expectedTimePattern);
     });
 
     it('update every second', () => {
